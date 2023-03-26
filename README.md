@@ -1,5 +1,5 @@
 # A script to deploy django projects on ubuntu & debian.
-  1. To deploy a django project on non-www or subdomain, you can use the specific file deploy.py helps in this function. This file will deploy django project on provided domain/sub-domain.
+  1. To deploy a django project on non-www or subdomain, you can use the specific file deploy.py which helps in this function. This file will deploy django project on provided domain/sub-domain.
   2. To Deploy a django project on www.domain.com you can use a specific file deploy-www.py.
 
 ## How to setup project?
