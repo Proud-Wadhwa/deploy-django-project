@@ -5,6 +5,7 @@ project_location = input("Enter the location of the project directory: ")
 project_name = input("Enter the Project name: ")
 inner_project_name = input("Enter the name of the inner Django project directory: ")
 domain_name = input("Enter the domain name: ")
+cmbs = input("Enter `client_max_body_size`: ")
 username = input("Enter the username: ")
 
 # Create Gunicorn service file
@@ -30,7 +31,7 @@ with open(f"{project_name}.service", "w") as f:
 nginx_block = f"""
 server {{
     server_name {domain_name};
-
+    client_max_body_size {cmbs};
     location = /favicon.ico {{ access_log off; log_not_found off; }}
     location /static/ {{
         root {project_location};
