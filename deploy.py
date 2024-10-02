@@ -24,7 +24,7 @@ WantedBy=multi-user.target
 """
 
 # Create and save Gunicorn service file
-with open(f"{project_name}.service", "w") as f:
+with open(f"{project_location}/{project_name}.service", "w") as f:
     f.write(gunicorn_service)
 
 # Create Nginx server block
@@ -66,12 +66,12 @@ server {{
 """
 
 # Create and save Nginx server block
-with open(f"{project_name}", "w") as f:
+with open(f"{project_location}/{project_name}", "w") as f:
     f.write(nginx_block)
 
 # Restart Nginx and Gunicorn
-os.system(f"sudo mv {project_name}.service /etc/systemd/system/")
-os.system(f"sudo mv {project_name} /etc/nginx/sites-enabled/")
+os.system(f"sudo mv {project_location}/{project_name}.service /etc/systemd/system/")
+os.system(f"sudo mv {project_location}/{project_name} /etc/nginx/sites-enabled/")
 
 os.system("sudo systemctl daemon-reload")
 os.system(f"sudo systemctl start {project_name}.service")
